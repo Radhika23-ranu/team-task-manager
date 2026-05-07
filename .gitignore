@@ -1,0 +1,13 @@
+node_modules/
+.env
+
+# MacOS
+.DS_Store
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
