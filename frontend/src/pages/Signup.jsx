@@ -32,7 +32,10 @@ const Signup = () => {
       toast.success('Account created successfully!');
       navigate('/');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Signup failed');
+      const errorMsg = error.response?.data?.message || error.message || 'Signup failed';
+      const baseURL = error.config?.baseURL || '';
+      const reqUrl = error.config?.url || '';
+      toast.error(`Error: ${errorMsg} at ${baseURL}${reqUrl}`, { duration: 8000 });
     } finally {
       setLoading(false);
     }
