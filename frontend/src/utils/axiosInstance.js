@@ -1,7 +1,10 @@
 import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const isLocal = window.location.hostname === 'localhost';
+const API_URL = isLocal 
+  ? 'http://localhost:5000/api' 
+  : 'https://team-task-manager-production-e080.up.railway.app/api';
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
